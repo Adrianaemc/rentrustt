@@ -1,0 +1,22 @@
+RenTrust V19 - parche incremental sobre el proyecto V18
+
+1. Hacé una copia de seguridad de tu proyecto funcional.
+2. Copiá los archivos de src/ de este ZIP a las mismas rutas del proyecto.
+3. En Supabase > SQL Editor ejecutá SUPABASE_V19_PERFIL_SOLICITANTE.sql.
+4. Ejecutá npm run dev y probá con un propietario y un inquilino.
+
+Cambios:
+- Inicio informativo sin búsqueda ni filtros, con botón de inicio de sesión y footer.
+- Navegación por rol y acceso al perfil mediante avatar.
+- Registro con CUIT/CUIL obligatorio y validación del dígito verificador.
+- Perfil editable con CUIT y foto (guardada en metadatos de Auth).
+- Historial de propuestas con botón Ver detalle y modal con datos del solicitante, reseñas, historial y evaluación.
+- Contratos activos: nuevo rótulo en Mis propiedades del inquilino.
+- Se eliminan algunas referencias internas a historias de usuario en pantalla.
+
+IMPORTANTE:
+- La consulta crediticia sigue siendo un escenario de prueba, no una integración real con centrales de riesgo. No uses sus resultados para decidir sobre una persona.
+- El modal usa la función SQL nueva para acceder únicamente a datos del inquilino de una propuesta recibida por el propietario autenticado.
+- La foto de perfil se almacena como imagen pequeña en metadatos de Supabase Auth. Para producción conviene moverla a Supabase Storage.
+- No se modifican pagos, firmas ni contratos existentes.
+- El ZIP original traía la base y archivos V18, pero no se pudo hacer una prueba integral conectada a tu Supabase. Probá el flujo antes de la defensa.

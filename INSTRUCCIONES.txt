@@ -1,0 +1,9 @@
+RenTrust V14 - Parche sobre V13
+1. Cerrar servidor (Ctrl+C).
+2. Hacer copia de seguridad de la carpeta V13.
+3. Extraer este ZIP DENTRO de la carpeta RenTrust_V13, conservando rutas y aceptando reemplazar los archivos indicados.
+4. NO borrar node_modules, package.json, package-lock.json ni .env.
+5. En Supabase verificar etapa 8; luego revisar y ejecutar SUPABASE_V14_FINALIZACION_ANTICIPADA.sql en proyecto de prueba. OJO: permite finalizar contratos activos incluso con cuotas pendientes.
+6. npm.cmd run dev
+7. Probar interfaz, finalizacion y resenas.
+Este parche no incluye dependencias ni claves. No se ha validado compilacion ni integracion con Supabase.

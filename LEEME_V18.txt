@@ -1,0 +1,42 @@
+RENTRUST V18 - ACTUALIZACION INCREMENTAL (sobre V17 + parches V16)
+
+1. HACER COPIA DE SEGURIDAD.
+2. Tener aplicados los SQL previos: ETAPA8, V15, V16, V17.
+3. Ejecutar en Supabase SQL Editor:
+   - SUPABASE_V18_HISTORIAL_INQUILINO.sql
+   - SUPABASE_V18_CIERRE_CON_PAGOS.sql
+4. Copiar SOLO los archivos de src/ al proyecto, manteniendo rutas.
+5. No reemplazar .env, node_modules ni package.json.
+6. En Windows: npm.cmd run dev
+
+CAMBIOS
+- HU-003: perfiles reales editables desde Supabase Auth, sin datos ficticios.
+- HU-004: estado de correo confirmado, aclarando que NO valida identidad legal.
+- HU-009: fallback del mapa sin coordenadas.
+- HU-012: historial agregado del inquilino visible solo al propietario de la propuesta (RPC).
+- HU-014: análisis estadístico explicable de reseñas, NO IA.
+- HU-015: consulta crediticia SIMULADA, escenarios ficticios manuales, sin datos reales.
+- HU-016: recomendación explicable por valoración y precio.
+- HU-032: cierre anticipado permitido, pero se bloquea si hay cuotas vencidas pendientes; espera dos reseñas para completed.
+- HU-036: historial real ya disponible en Mis alquileres; se eliminan historiales ficticios del perfil.
+- HU-026: conserva la integridad SHA-256 de V17; NO es blockchain.
+- Pagos: permanecen simulados.
+
+LIMITACIONES HONESTAS
+- HU-004: validación documental real NO implementada. Solo confirmación de email.
+- HU-014: no hay servicio de IA; resumen estadístico.
+- HU-015: no hay consulta a central crediticia; escenario de prueba.
+- HU-026: SHA-256 en Supabase no constituye blockchain real.
+- HU-032: se controlan cuotas vencidas registradas; no se auditan todas las posibles obligaciones contractuales.
+- No se probó la conexión a tu Supabase ni el flujo de ambas cuentas.
+- La compilación en este entorno no pudo ejecutarse: el ZIP original contiene dependencias Windows y este entorno es Linux. Se validó sintaxis TSX con Babel.
+
+PRUEBAS OBLIGATORIAS
+- Editar nombre/teléfono y recargar ambos perfiles.
+- Abrir propuesta del propietario: historial y simulación crediticia.
+- Filtrar propiedades y verificar mapa sin coordenadas.
+- Ver reseñas y su resumen estadístico.
+- Intentar cerrar con cuota vencida pendiente (debe bloquear).
+- Pagar cuota de forma simulada, cerrar y comprobar pending_review en ambas cuentas.
+- Publicar ambas reseñas y comprobar completed en ambas cuentas.
+- Verificar integridad SHA-256 del contrato firmado (V17).

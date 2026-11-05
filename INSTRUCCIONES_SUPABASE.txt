@@ -1,0 +1,16 @@
+RENTRUST + SUPABASE (registro real)
+
+1. Descomprimí el ZIP en una carpeta nueva y abrila en VS Code.
+2. En esa carpeta creá .env.local con:
+   VITE_SUPABASE_URL=https://TU-PROYECTO.supabase.co
+   VITE_SUPABASE_ANON_KEY=TU_CLAVE_PUBLICABLE
+   Usá la URL y clave publicable de tu proyecto (no compartas claves secretas).
+3. Ejecutá npm install y luego npm run dev.
+4. Supabase > Authentication > Providers > Email: habilitá Email.
+5. Si Confirm email está activado, revisá el correo después de registrarte.
+6. Probá registrar DOS cuentas con correos diferentes, cerrar sesión y volver a entrar.
+
+Qué es real: registro, login, logout, persistencia de sesión y campos editables del perfil (metadata de Supabase Auth).
+Qué sigue simulado: propiedades, propuestas, favoritos, estadísticas, pagos, contratos y reseñas.
+NOTA: la información adicional de los perfiles se guarda en user_metadata de Auth, no en tablas de dominio.
+No uses datos bancarios reales ni documentación personal durante pruebas.
